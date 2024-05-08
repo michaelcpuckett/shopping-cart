@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="space--lg">Shopping Cart</h1>
+      <h2 class="space--lg">Items in Your Cart</h2>
+      <table class="cart">
+        <thead class="cart__section cart__section--heading">
+          <tr class="cart__row cart-item">
+            <th
+              class="cart__cell cart__cell--col-header cart-item__label"
+              scope="col"
+            >
+              <p>Item</p>
+            </th>
+            <th
+              class="cart__cell cart__cell--col-header cart-item__price"
+              scope="col"
+            >
+              <p>Price</p>
+            </th>
+            <th
+              class="cart__cell cart__cell--col-header cart-item__quantity"
+              scope="col"
+            >
+              <p>Quantity</p>
+            </th>
+            <th
+              class="cart__cell cart__cell--col-header cart-item__total"
+              scope="col"
+            >
+              <p>Total</p>
+            </th>
+            <th
+              class="cart__cell cart__cell--col-header cart-item__actions"
+              scope="col"
+            >
+              <p>Actions</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="cart__section cart__section--items">
+          <tr class="cart__row cart-item">
+            <th
+              class="cart-item__label cart__cell cart__cell--row-header"
+              scope="row"
+            >
+              <img
+                src="https://place-hold.it/120"
+                height="120"
+                width="120"
+                alt="Product shot of Dog Collar"
+              />
+              <p><a href="/dog-collar">Dog Collar</a></p>
+            </th>
+            <td class="cart-item__price cart__cell">$10.99</td>
+            <td class="cart-item__quantity cart__cell">
+              <button
+                class="decrement"
+                type="button"
+                aria-label="Decrease Dog Bone quantity"
+              >
+                -
+              </button>
+              <p>1</p>
+              <button
+                class="increment"
+                type="button"
+                aria-label="Increase Dog Bone quantity"
+              >
+                +
+              </button>
+            </td>
+            <td class="cart-item__total cart__cell">$10.99</td>
+            <td class="cart-item__actions cart__cell">
+              <button aria-label="Remove Dog Leash">X</button>
+            </td>
+          </tr>
+          <tr class="cart__row cart-item">
+            <th
+              class="cart-item__label cart__cell cart__cell--row-header"
+              scope="row"
+            >
+              <img
+                src="https://place-hold.it/120"
+                height="120"
+                width="120"
+                alt="Product shot of Dog Leash"
+              />
+              <p>
+                <a href="/dog-leash">Dog Leash</a>
+              </p>
+            </th>
+            <td class="cart-item__price cart__cell">$15.99</td>
+            <td class="cart-item__quantity cart__cell">
+              <button
+                class="decrement"
+                type="button"
+                aria-label="Decrease Dog Bone quantity"
+              >
+                -
+              </button>
+              <p>1</p>
+              <button
+                class="increment"
+                type="button"
+                aria-label="Increase Dog Bone quantity"
+              >
+                +
+              </button>
+            </td>
+            <td class="cart-item__total cart__cell">$15.99</td>
+            <td class="cart-item__actions cart__cell">
+              <button aria-label="Remove Dog Leash">X</button>
+            </td>
+          </tr>
+          <tr class="cart__row cart-item">
+            <th
+              class="cart-item__label cart__cell cart__cell--row-header"
+              scope="row"
+            >
+              <img
+                src="https://place-hold.it/120"
+                height="120"
+                width="120"
+                alt="Product shot of Dog Bone"
+              />
+              <p>
+                <a href="/dog-bone">Dog Bone</a>
+              </p>
+            </th>
+            <td class="cart-item__price cart__cell">$5.99</td>
+            <td class="cart-item__quantity cart__cell">
+              <button
+                class="decrement"
+                type="button"
+                aria-label="Decrease Dog Bone quantity"
+              >
+                -
+              </button>
+              <p>2</p>
+              <button
+                class="increment"
+                type="button"
+                aria-label="Increase Dog Bone quantity"
+              >
+                +
+              </button>
+            </td>
+            <td class="cart-item__total cart__cell">$11.98</td>
+            <td class="cart-item__actions cart__cell">
+              <button aria-label="Remove Dog Bone (2)">X</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot class="cart__section cart__section--summary">
+          <tr class="cart__row cart-item">
+            <td class="cart__cell cart-item__label">
+              <p>Subtotal</p>
+            </td>
+            <td class="cart__cell cart-item__total">$38.96</td>
+          </tr>
+          <tr class="cart__row cart-item">
+            <td class="cart__cell cart-item__label">
+              <p>Shipping</p>
+            </td>
+            <td class="cart__cell cart-item__total">$5.00</td>
+          </tr>
+          <tr class="cart__row cart-item">
+            <td class="cart__cell cart-item__label">
+              <p>Total</p>
+            </td>
+            <td class="cart__cell cart-item__total">$43.96</td>
+          </tr>
+        </tfoot>
+      </table>
+      <button type="button" class="button button--primary button--stretch">
+        Checkout
+      </button>
+      <h2 class="space--lg">Related Items</h2>
+      <ul class="suggested-item__list">
+        <li class="suggested-item">
+          <img
+            src="https://place-hold.it/120"
+            height="120"
+            width="120"
+            alt="Product shot of Dog Treats"
+            class="suggested-item__image"
+          />
+          <a href="/dog-treats" class="suggested-item__label">Dog Treats</a>
+          <p class="suggested-item__price">$10.99</p>
+          <button type="button" aria-label="Add Dog Treats to cart">
+            Add to Cart
+          </button>
+        </li>
+        <li class="suggested-item">
+          <img
+            src="https://place-hold.it/120"
+            height="120"
+            width="120"
+            alt="Product shot of Dog Toothbrush"
+            class="suggested-item__image"
+          />
+          <a href="/dog-treats" class="suggested-item__label">Dog Toothbrush</a>
+          <p class="suggested-item__price">$12.99</p>
+          <button type="button" aria-label="Add Dog Toothbrush to cart">
+            Add to Cart
+          </button>
+        </li>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
