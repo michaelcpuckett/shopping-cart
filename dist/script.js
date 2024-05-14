@@ -14,8 +14,6 @@ cartItemElements.forEach((cartItemElement) => {
   const incrementButtonElement = cartItemElement.querySelector(".increment");
   const decrementButtonElement = cartItemElement.querySelector(".decrement");
 
-  console.log(quantityElement.textContent, priceElement.textContent);
-
   const cartItem = {
     incrementButtonElement,
     decrementButtonElement,
@@ -29,8 +27,6 @@ cartItemElements.forEach((cartItemElement) => {
     totalElement,
   };
 
-  console.table(cartItem);
-
   const aElement = cartItemElement.querySelector(".cart-item__label p a");
 
   const url = aElement.getAttribute("href");
@@ -40,31 +36,19 @@ cartItemElements.forEach((cartItemElement) => {
 
 function adjustQuantity(cartItem, url, adjustment) {
   const quantity = cartItem.quantity;
-  const newQuantity = quantity + adjustment;
+  const newQuantity = Math.max(0, quantity + adjustment);
 
-  cartItems[url] = {
-    ...cartItem,
+  const newItem = Object.assign({}, cartItem, {
     quantity: newQuantity,
-  };
-}
+  });
 
-/**
- * {newTotal: 0}
- * {newTotal: 21.98}
- *
- * value 10.99
- */
+  cartItems[url] = newItem;
+}
 
 function updateCartItem(cartItem) {
   const price = cartItem.price;
   const quantity = cartItem.quantity;
-  const newTotal = quantity * price;
-
-  console.log({
-    quantity,
-    price,
-    newTotal,
-  });
+  const newItemTotal = quantity * price;
 
   const quantityElement = cartItem.quantityElement;
 
@@ -72,21 +56,43 @@ function updateCartItem(cartItem) {
 
   const totalElement = cartItem.totalElement;
 
-  totalElement.innerText = `$${newTotal}`;
+  totalElement.innerText = `$${newItemTotal}`;
+}
+
+function updateCartTotals() {
+  const cartSubtotalElement = document.querySelector("#cart-subtotal");
+
+  const cartTotalElement = document.querySelector("#cart-total");
+
+  let allItemsTotals = 0;
+
+  for (const cartItemKey in cartItems) {
+    const cartItem = cartItems[cartItemKey];
+    const total = cartItem.quantity * cartItem.price;
+
+    allItemsTotals = allItemsTotals + total;
+  }
+
+  cartSubtotalElement.innerText = `$${allItemsTotals}`;
+
+  const totalWithShipping = allItemsTotals + 5;
+
+  cartTotalElement.innerText = `$${totalWithShipping.toFixed(2)}`;
 }
 
 for (const cartItemKey in cartItems) {
-  const cartItem = cartItems[cartItemKey];
   const { incrementButtonElement, decrementButtonElement } =
     cartItems[cartItemKey];
 
   decrementButtonElement.addEventListener("click", () => {
     adjustQuantity(cartItems[cartItemKey], cartItemKey, -1);
     updateCartItem(cartItems[cartItemKey]);
+    updateCartTotals();
   });
 
   incrementButtonElement.addEventListener("click", () => {
     adjustQuantity(cartItems[cartItemKey], cartItemKey, 1);
     updateCartItem(cartItems[cartItemKey]);
+    updateCartTotals();
   });
 }
